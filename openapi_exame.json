@@ -1,0 +1,1369 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Doação de Animais",
+    "version": "0.0.1",
+    "description": "Esta é uma API que demonstra não só a doação de animais, mas também outros aspetos, como por exemplo o registro de doações de brinquedos e comidas para os animais.",
+    "contact": {
+      "name": "a042166",
+      "email": "a042166@umaia.pt"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "My localhost",
+      "variables": {
+        "basePath": {
+          "default": "/"
+        }
+      }
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Animal": {
+        "title": "Animal",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer"
+          },
+          "typeAnimal": {
+            "type": "string"
+          },
+          "breed": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "typeAnimal"
+        ],
+        "additionalProperties": false
+      },
+      "Adoption": {
+        "title": "Adoption",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idAnimal": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "idPerson": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idVoluntario": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "idAnimal",
+          "morada",
+          "idPerson",
+          "idVoluntario"
+        ],
+        "additionalProperties": false
+      },
+      "Volunteer": {
+        "title": "Volunteer",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "phoneNumber",
+          "address"
+        ],
+        "additionalProperties": false
+      },
+      "Donation": {
+        "title": "Donation",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idPerson": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "idPerson",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "Person": {
+        "title": "Person",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "address"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "examples": {
+      "AnimalExample01": {
+        "value": {
+          "id": 1,
+          "name": "Bobi",
+          "age": 3,
+          "typeAnimal": "Dog",
+          "breed": "Yorkshire",
+          "description": "This dog is normal"
+        }
+      },
+      "AnimalExample02": {
+        "value": {
+          "id": 2,
+          "name": "Mizuki",
+          "age": 5,
+          "typeAnimal": "Cat",
+          "breed": "Birman",
+          "description": "This cat is hypoallergenic"
+        }
+      },
+      "AdoptionExample01": {
+        "value": {
+          "id": 1,
+          "name": "Adoption 01",
+          "address": "Rua dos peixes 17 1º andar",
+          "idPerson": 1,
+          "idVolunteer": 1,
+          "description": "The animal of this adoption was a dog named Bobi."
+        }
+      },
+      "AdoptionExample02": {
+        "value": {
+          "id": 2,
+          "name": "Adoption 02",
+          "address": "Rua das flores 13 3º andar",
+          "idPerson": 2,
+          "idVolunteer": 2,
+          "description": "The animal of this adoption was a hypoallergenic cat named Mizuki."
+        }
+      },
+      "VolunteerExample01": {
+        "value": {
+          "id": 1,
+          "name": "Joaquim",
+          "phoneNumber": 939339396,
+          "address": "Rua das pedras 31 4º andar"
+        }
+      },
+      "VolunteerExample02": {
+        "value": {
+          "id": 2,
+          "name": "Bruno",
+          "phoneNumber": 938521766,
+          "address": "Rua da poça 12 2º andar"
+        }
+      },
+      "DonationExample01": {
+        "value": {
+          "id": 1,
+          "idPerson": 2,
+          "type": "food",
+          "quantity": 10
+        }
+      },
+      "DonationExample02": {
+        "value": {
+          "id": 2,
+          "idPerson": 3,
+          "type": "toys",
+          "quantity": 5
+        }
+      },
+      "PersonExample01": {
+        "value": {
+          "id": 1,
+          "phoneNumber": 968435111,
+          "address": "Rua do casal 3 1º andar"
+        }
+      },
+      "PersonExample02": {
+        "value": {
+          "id": 2,
+          "phoneNumber": 961123486,
+          "address": "Rua do pássaro 2 3º andar"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/animal": {
+      "get": {
+        "tags": [
+          "RegisterAnimal"
+        ],
+        "operationId": "retrieveAnimals",
+        "summary": "Retrieve all animals",
+        "responses": {
+          "200": {
+            "description": "Array of Animals model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Animal"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Animal"
+                  },
+                  "xml": {
+                    "name": "Animal"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RegisterAnimal"
+        ],
+        "operationId": "registerAnimal",
+        "summary": "Register an animal",
+        "responses": {
+          "200": {
+            "description": "Create a record of an Animal model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Animal"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animal/{id}": {
+      "get": {
+        "tags": [
+          "RegisterAnimal"
+        ],
+        "operationId": "retrieveAnAnimal",
+        "summary": "Retrive an animal",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Animal"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Animal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Retrieve Animal id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Retrieve Animal id 2"
+              }
+            }
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "RegisterAnimal"
+        ],
+        "operationId": "updateAnAnimal",
+        "summary": "Update an animal",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Update PUI success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Update Animal id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Update Animal id 2"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              },
+              "examples": {
+                "AnimalExample01": {
+                  "$ref": "#/components/examples/AnimalExample01"
+                },
+                "AnimalExample02": {
+                  "$ref": "#/components/examples/AnimalExample02"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RegisterAnimal"
+        ],
+        "operationId": "deleteAnAnimal",
+        "summary": "Delete an animal",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Delete Animal id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Delete Animal id 2"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/adoption": {
+      "get": {
+        "tags": [
+          "RegisterAdoption"
+        ],
+        "operationId": "retrieveAllAdoptions",
+        "summary": "Retrieve all adoptions",
+        "responses": {
+          "200": {
+            "description": "Array of Adoption model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Adoption"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Adoption"
+                  },
+                  "xml": {
+                    "name": "Adoption"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RegisterAdoption"
+        ],
+        "operationId": "createAdoption",
+        "summary": "Create an adoption",
+        "responses": {
+          "200": {
+            "description": "Create an Adoption model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adoption"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adoption"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Adoption"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Adoption/{id}": {
+      "get": {
+        "tags": [
+          "RegisterAdoption"
+        ],
+        "operationId": "retrieveAdoptions",
+        "summary": "Retrieve an adoption",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adoption"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Retrieve Adoption id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Retrieve Adoption id 2"
+              }
+            }
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "RegisterAdoption"
+        ],
+        "operationId": "updateAdoption",
+        "summary": "Update an adoption",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Adoption PUI success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Update Adoption id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Update Adoption id 2"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adoption"
+              },
+              "examples": {
+                "AdocaoExample01": {
+                  "$ref": "#/components/examples/AdoptionExample01"
+                },
+                "AdocaoExample02": {
+                  "$ref": "#/components/examples/AdoptionExample02"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RegisterAdoption"
+        ],
+        "operationId": "deleteAdoption",
+        "summary": "Delete an adoption",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Delete Adoption id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Delete Adoption id 2"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/Volunteer": {
+      "get": {
+        "tags": [
+          "RegisterVolunteer"
+        ],
+        "operationId": "retrieveVolunteer",
+        "summary": "Retrieve all volunteers",
+        "responses": {
+          "200": {
+            "description": "Array of volunteer model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Volunteer"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Volunteer"
+                  },
+                  "xml": {
+                    "name": "Volunteer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RegisterVolunteer"
+        ],
+        "operationId": "createVolunteer",
+        "summary": "Create volunteer",
+        "responses": {
+          "200": {
+            "description": "Create a volunteer model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Volunteer"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Volunteer"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Volunteer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Volunteer/{id}": {
+      "get": {
+        "tags": [
+          "RegisterVolunteer"
+        ],
+        "operationId": "retrieveAVolunteer",
+        "summary": "Retrieve a volunteer",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Volunteer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Retrieve Voluntario id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Retrieve Voluntario id 2"
+              }
+            }
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "RegisterVolunteer"
+        ],
+        "operationId": "updateVolunteer",
+        "summary": "Update a volunteer",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Volunteer PUI success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Update volunteer id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Update volunteer id 2"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Volunteer"
+              },
+              "examples": {
+                "AdocaoExample01": {
+                  "$ref": "#/components/examples/VolunteerExample01"
+                },
+                "AdocaoExample02": {
+                  "$ref": "#/components/examples/VolunteerExample02"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RegisterVolunteer"
+        ],
+        "operationId": "deleteVolunteer",
+        "summary": "Delete a volunteer",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Delete a volunteer id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Delete a volunteer id 2"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/Donation": {
+      "get": {
+        "tags": [
+          "RegisterDonation"
+        ],
+        "operationId": "retrieveDonation",
+        "summary": "Retrieve all donations",
+        "responses": {
+          "200": {
+            "description": "Array of donations model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Donation"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Donation"
+                  },
+                  "xml": {
+                    "name": "Donation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RegisterDonation"
+        ],
+        "operationId": "createDonation",
+        "summary": "Create a donation",
+        "responses": {
+          "200": {
+            "description": "Create a donation model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Donation"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Donation"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Donation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Donation/{id}": {
+      "get": {
+        "tags": [
+          "RegisterDonation"
+        ],
+        "operationId": "retrieveADonation",
+        "summary": "Retrieve a donation",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Donation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Retrieve donation id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Retrieve donation id 2"
+              }
+            }
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "RegisterDonation"
+        ],
+        "operationId": "updateDonation",
+        "summary": "Update a donation",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Donation PUI success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Update donation id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Update donation id 2"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Donation"
+              },
+              "examples": {
+                "AdocaoExample01": {
+                  "$ref": "#/components/examples/DonationExample01"
+                },
+                "AdocaoExample02": {
+                  "$ref": "#/components/examples/DonationExample02"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RegisterDonation"
+        ],
+        "operationId": "deleteDonation",
+        "summary": "Delete a donation",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Delete a donation id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Delete a donation id 2"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/person": {
+      "get": {
+        "tags": [
+          "RegisterPerson"
+        ],
+        "operationId": "retrievePerson",
+        "summary": "Retrieve all People",
+        "responses": {
+          "200": {
+            "description": "Array of People model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Person"
+                  },
+                  "xml": {
+                    "name": "Person"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RegisterPerson"
+        ],
+        "operationId": "registerPerson",
+        "summary": "Register a Person",
+        "responses": {
+          "200": {
+            "description": "Create a record of a Person model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/person/{id}": {
+      "get": {
+        "tags": [
+          "RegisterPerson"
+        ],
+        "operationId": "retrieveAPerson",
+        "summary": "Retrive a Person",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Retrieve Person id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Retrieve Person id 2"
+              }
+            }
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "RegisterPerson"
+        ],
+        "operationId": "updateAPerson",
+        "summary": "Update a Person",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Update PUI success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Update Person id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Update Person id 2"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              },
+              "examples": {
+                "AnimalExample01": {
+                  "$ref": "#/components/examples/PersonExample01"
+                },
+                "AnimalExample02": {
+                  "$ref": "#/components/examples/PersonExample02"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RegisterPerson"
+        ],
+        "operationId": "deleteAPerson",
+        "summary": "Delete a Person",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "id not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "required": true,
+            "examples": {
+              "one": {
+                "value": 1,
+                "summary": "Delete Person id 1"
+              },
+              "two": {
+                "value": 2,
+                "summary": "Delete Person id 2"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
