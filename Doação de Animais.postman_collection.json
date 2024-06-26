@@ -1,0 +1,2178 @@
+{
+	"info": {
+		"_postman_id": "56a95ea7-82a7-4e1e-9e78-a4358d206089",
+		"name": "Doação de Animais",
+		"description": "Esta é uma API que demonstra não só a doação de animais, mas também outros aspetos, como por exemplo o registro de doações de brinquedos e comidas para os animais.\n\nContact Support:\n Name: a042166\n Email: a042166@umaia.pt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30149542"
+	},
+	"item": [
+		{
+			"name": "animal",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Retrive an animal",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/animal/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"animal",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update an animal",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/animal/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"animal",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"description\": \"Update PUI success\",\n  \"x-content-type\": \"application/json\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete an animal",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/animal/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"animal",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/animal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"animal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Retrieve all animals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/animal",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"animal"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Array of Animals model instances",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/animal",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"animal"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"idAnimal\": \"<long>\",\n    \"name\": \"<string>\",\n    \"typeAnimal\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"breed\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"idAnimal\": \"<long>\",\n    \"name\": \"<string>\",\n    \"typeAnimal\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"breed\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Register an animal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/animal",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"animal"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create a record of an Animal model instance",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/animal",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"animal"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"idAnimal\": \"<long>\",\n  \"name\": \"<string>\",\n  \"typeAnimal\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"breed\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "adoption",
+			"item": [
+				{
+					"name": "Retrieve all adoptions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/adoption",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adoption"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Array of Adoption model instances",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/adoption",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adoption"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"idAnimal\": \"<long>\",\n    \"idPerson\": \"<long>\",\n    \"idVoluntario\": \"<long>\",\n    \"name\": \"<string>\",\n    \"address\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"idAnimal\": \"<long>\",\n    \"idPerson\": \"<long>\",\n    \"idVoluntario\": \"<long>\",\n    \"name\": \"<string>\",\n    \"address\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create an adoption",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/adoption",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"adoption"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create an Adoption model instance",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/adoption",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"adoption"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Adoption",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Retrieve an adoption",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Adoption/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Adoption",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update an adoption",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Adoption/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Adoption",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"description\": \"Adoption PUI success\",\n  \"x-content-type\": \"application/json\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idAnimal\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"idVoluntario\": \"<long>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete an adoption",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/Adoption/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Adoption",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Adoption/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Adoption",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Volunteer",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Retrieve a volunteer",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Volunteer/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Volunteer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update a volunteer",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Volunteer/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Volunteer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"description\": \"Volunteer PUI success\",\n  \"x-content-type\": \"application/json\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a volunteer",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/Volunteer/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Volunteer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Volunteer/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Volunteer",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Retrieve all volunteers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Volunteer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Volunteer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Array of volunteer model instances",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Volunteer",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Volunteer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"idVolunteer\": \"<long>\",\n    \"name\": \"<string>\",\n    \"anoInicioVolunteering\": \"<long>\",\n    \"phoneNumber\": \"<long>\",\n    \"address\": \"<string>\"\n  },\n  {\n    \"idVolunteer\": \"<long>\",\n    \"name\": \"<string>\",\n    \"anoInicioVolunteering\": \"<long>\",\n    \"phoneNumber\": \"<long>\",\n    \"address\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create volunteer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Volunteer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Volunteer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create a volunteer model instance",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Volunteer",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Volunteer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"idVolunteer\": \"<long>\",\n  \"name\": \"<string>\",\n  \"anoInicioVolunteering\": \"<long>\",\n  \"phoneNumber\": \"<long>\",\n  \"address\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Donation",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Retrieve a donation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Donation/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Donation",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update a donation",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Donation/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Donation",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"description\": \"Donation PUI success\",\n  \"x-content-type\": \"application/json\"\n}"
+								},
+								{
+									"name": "Bad request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a donation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/Donation/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Donation",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "id not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Donation/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Donation",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Retrieve all donations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Donation",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Donation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Array of donations model instances",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Donation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Donation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"idDonation\": \"<long>\",\n    \"idPerson\": \"<long>\",\n    \"quantity\": \"<integer>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"idDonation\": \"<long>\",\n    \"idPerson\": \"<long>\",\n    \"quantity\": \"<integer>\",\n    \"type\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a donation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Donation",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Donation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create a donation model instance",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Donation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Donation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"idDonation\": \"<long>\",\n  \"idPerson\": \"<long>\",\n  \"quantity\": \"<integer>\",\n  \"type\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "basePath",
+			"value": "/"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
