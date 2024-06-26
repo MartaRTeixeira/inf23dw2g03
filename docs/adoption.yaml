@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: Adoption API
+  version: 1.0.0
+paths:
+  /adoption:
+    get:
+      summary: Get all adoptions
+      responses:
+        '200':
+          description: A list of adoptions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Adoption'
+    post:
+      summary: Create a new adoption
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Adoption'
+      responses:
+        '201':
+          description: Adoption created
+  /adoption/{id}:
+    get:
+      summary: Get an adoption by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single adoption
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Adoption'
+        '404':
+          description: Adoption not found
+    delete:
+      summary: Delete an adoption by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Adoption deleted
+        '404':
+          description: Adoption not found
+    put:
+      summary: Update an adoption by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Adoption'
+      responses:
+        '200':
+          description: Adoption updated
+components:
+  schemas:
+    Adoption:
+      type: object
+      properties:
+        id:
+          type: integer
+        idAnimal:
+          type: integer
+        name:
+          type: string
+        address:
+          type: string
+        idPerson:
+          type: integer
+        idVolunteer:
+          type: integer
+        description:
+          type: string

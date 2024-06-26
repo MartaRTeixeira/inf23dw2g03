@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: Person API
+  version: 1.0.0
+paths:
+  /person/{id}:
+    get:
+      summary: Get a person by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single person
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '404':
+          description: Person not found
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phoneNumber:
+          type: string
+        address:
+          type: string

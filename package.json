@@ -1,0 +1,32 @@
+{
+  "name": "inf23dw2g03",
+  "version": "1.0.0",
+  "description": "inf23dw2g03",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inf23dw2g03/inf23dw2g03.git"
+  },
+  "author": "g03",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inf23dw2g03/inf23dw2g03/issues"
+  },
+  "homepage": "https://github.com/inf23dw2g03/inf23dw2g03#readme",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.9.7",
+    "passport": "^0.7.0",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-google-oauth20": "^2.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
+}

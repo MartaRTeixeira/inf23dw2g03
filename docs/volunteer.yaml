@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: Volunteer API
+  version: 1.0.0
+paths:
+  /volunteer/{id}:
+    get:
+      summary: Get a volunteer by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single volunteer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Volunteer'
+        '404':
+          description: Volunteer not found
+components:
+  schemas:
+    Volunteer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        phoneNumber:
+          type: string
+        address:
+          type: string
