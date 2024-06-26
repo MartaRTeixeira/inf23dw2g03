@@ -1,7 +1,9 @@
 # inf24dw2g03
 ### Overview
 
-...
+A aplicação que desenvolvemos tem como função facilitar a adoção de animais.
+É possível adicionar uma nova pessoa (adotante), um novo animal, um novo voluntário e uma nova adoção.
+Será possível também editar ou eliminar entradas de cada uma das instâncias anteriores.
 
 Projeto feito por:
 
